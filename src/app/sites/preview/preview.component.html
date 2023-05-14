@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="split">
+    <div class="heading">{{name}}</div>
+    <div class="preview computer">
+      <svg class="background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430">
+        <defs>
+          <style>.j {
+            fill: #545361;
+          }
+
+          .k {
+            fill: transparent;
+          }</style>
+        </defs>
+        <rect class="j" width="720" height="430" rx="10" ry="10"/>
+        <path class="k" d="M12.5,2.79H707.5c5.52,0,10,4.48,10,10V404.79H2.5V12.79C2.5,7.27,6.98,2.79,12.5,2.79Z"/>
+      </svg>
+      <iframe class="overlay" [src]="route | safe"></iframe>
+    </div>
+  </div>
+  <div class="preview phone">
+    <svg class="background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 495">
+      <defs>
+        <style>.b {
+          fill: #006837;
+          opacity: 0;
+        }
+
+        .c {
+          fill: #545361;
+        }
+
+        .d {
+          fill: transparent;
+        }
+
+        .e {
+          fill: #ececf4;
+        }</style>
+      </defs>
+      <rect class="b" x="-122.5" y="122.5" width="495" height="250" rx="50.99" ry="50.99"
+            transform="translate(372.5 122.5) rotate(90)"/>
+      <g>
+        <rect class="c" x="20" y="20" width="210" height="455" rx="8" ry="8"/>
+        <rect class="d" x="23" y="41.16" width="204" height="415"/>
+        <g>
+          <rect class="c" x="16" y="85.13" width="4" height="65"/>
+          <rect class="c" x="16" y="172.99" width="4" height="38"/>
+        </g>
+        <g>
+          <rect class="e" x="107.42" y="28.08" width="35" height="5" rx="2.5" ry="2.5"/>
+          <rect class="e" x="151.03" y="27.21" width="6.74" height="6.74" rx="3.37" ry="3.37"/>
+        </g>
+      </g>
+    </svg>
+    <iframe class="overlay" [src]="route | safe"></iframe>
+  </div>
+</div>

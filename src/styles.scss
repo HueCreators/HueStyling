@@ -1,0 +1,53 @@
+html, body {
+  background-color: var(--color-secondary-bg);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  color: var(--color-secondary-text);
+  font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: Whitney;
+  font-weight: 400;
+  src: url(/assets/whitney.woff) format("woff")
+}
+
+@font-face {
+  font-family: 'Panton Black Caps';
+  src: url(./assets/panton.black-caps.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Panton Light Caps';
+  src: url(./assets/panton.light-caps.otf) format('opentype');
+}
+
+:root {
+  --color-link-hover: #27c7b9;
+
+  --color-logo-pink: #e63462;
+  --color-logo-blue: #2359b5;
+
+  --color-main-bg: #212a36;
+  --color-main-text: #cdd9e5;
+
+  --color-secondary-bg: #171e26;
+  --color-secondary-text: #adbac7;
+
+  --color-input-bg: #151c25;
+  --color-input-label: #515460;
+
+  --color-input-invalid: #ED4337;
+  --color-input-valid: #58ed37;
+  --color-input-neutral: #3771ed;
+}

@@ -1,0 +1,59 @@
+<nav #navbar>
+  <div class="branding">Hue Studios</div>
+  <a class="burger" (click)="navbar.classList.toggle('expanded')">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </a>
+  <div class="filler" (click)="navbar.classList.remove('expanded')"></div>
+  <div class="expandable">
+    <div class="link">
+      <a href="#">Documentation</a>
+    </div>
+    <div class="collapse">
+      <input type="checkbox" id="terms_drp" class="dropdown">
+      <label for="terms_drp">Terms & Privacy</label>
+      <div class="content">
+        <div class="link">
+          <a href="#">Community</a>
+        </div>
+        <div class="link">
+          <a href="#">User</a>
+        </div>
+        <div class="link">
+          <a href="#">Developer</a>
+        </div>
+      </div>
+    </div>
+    <div class="collapse">
+      <input type="checkbox" id="community_drp" class="dropdown">
+      <label for="community_drp">Community</label>
+      <div class="content">
+        <div class="link">
+          <a href="#">Premium</a>
+        </div>
+        <div class="link">
+          <a href="#">Resources</a>
+        </div>
+        <div class="link">
+          <a href="#">Plugins</a>
+        </div>
+      </div>
+    </div>
+    <div class="collapse">
+      <input type="checkbox" id="user_drp" class="dropdown">
+      <label for="user_drp">User</label>
+      <div class="content">
+        <div class="link">
+          <a href="#">Premium</a>
+        </div>
+        <div class="link">
+          <a href="#">Resources</a>
+        </div>
+        <div class="link">
+          <a href="#">Plugins</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
