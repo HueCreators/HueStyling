@@ -1,5 +1,5 @@
 nav {
-  background-color: var(--color-main-bg);
+  background-color: var(--main-bg);
   color: whitesmoke;
   box-sizing: border-box;
   width: 100%;
@@ -37,7 +37,7 @@ nav {
 
   .burger {
     .line {
-      background-color: var(--color-logo-pink);
+      background-color: var(--logo-pink);
     }
 
     .line:first-child {
@@ -68,7 +68,7 @@ nav {
     flex-direction: row;
     align-items: center;
     border-radius: 4px;
-    color: var(--color-secondary-text);
+    color: var(--secondary-text);
     height: 34px;
     width: 100%;
     cursor: pointer;
@@ -104,7 +104,7 @@ nav {
           width: 2px;
           height: 54px;
           position: absolute;
-          background-color: var(--color-link-hover);
+          background-color: var(--link-hover);
           top: -8px;
           left: 0;
         }
@@ -116,7 +116,7 @@ nav {
           width: 2px;
           height: 100%;
           position: absolute;
-          background-color: var(--color-link-hover);
+          background-color: var(--link-hover);
           left: 0;
         }
       }
@@ -128,7 +128,7 @@ nav {
   }
 
   .dropdown:checked + label {
-    color: var(--color-link-hover);
+    color: var(--link-hover);
     margin-bottom: 8px;
 
     &:before {
@@ -161,7 +161,7 @@ nav {
     flex-direction: row;
     align-items: center;
     border-radius: 4px;
-    color: var(--color-secondary-text);
+    color: var(--secondary-text);
     height: 34px;
     width: 100%;
   }
@@ -170,14 +170,14 @@ nav {
 .branding {
   font-size: 24px;
   font-family: "Panton Black Caps", serif;
-  color: var(--color-main-text);
+  color: var(--main-text);
 }
 
 .expandable {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-main-bg);
+  background-color: var(--main-bg);
   top: 48px;
   width: 70vw;
   height: calc(100vh - 48px);
@@ -210,12 +210,12 @@ nav {
     transition: all 125ms ease-in-out;
     width: 100%;
     height: 4px;
-    background-color: var(--color-main-text);
+    background-color: var(--main-text);
     border-radius: 2px;
   }
 
   &:hover .line {
-    background-color: var(--color-link-hover);
+    background-color: var(--link-hover);
   }
 }
 
@@ -289,7 +289,7 @@ nav {
 
     &:hover {
       label {
-        color: var(--color-link-hover);
+        color: var(--link-hover);
         margin-bottom: 0;
 
         &:before {
@@ -303,7 +303,7 @@ nav {
       .content {
         top: 56px;
         height: auto;
-        background-color: var(--color-main-bg);
+        background-color: var(--main-bg);
       }
     }
   }
@@ -317,7 +317,7 @@ nav {
       height: 100%;
 
       &:hover {
-        color: var(--color-link-hover);
+        color: var(--link-hover);
       }
     }
   }

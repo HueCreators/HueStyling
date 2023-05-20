@@ -1,31 +1,106 @@
 <div class="content">
   <div class="envelope">
-    <div class="head">
-      <div class="heading">Hue Studios</div>
-      <div class="description">Your own privacy and centralisation awaits!</div>
+    <div class="column" style="background-color: #272d36; color: var(--main-text)">There will be content here fucker.
     </div>
-    <div class="main">
-      <div class="column">
-        <div class="heading">Public Information</div>
+    <div class="column form">
+      <div class="heading">{{headlineHeader}}</div>
+      <div class="slogan">{{headlineComment}}</div>
+      <div class="main" data-next="Next: Private information" data-header="Let's get started"
+           data-comment="Take control of your privacy, sign up now.">
+        <div class="field avatar_input">
+          <input id="avatar_inp" class="avatar" type="file" (change)="onFileChange($event, avatar_preview)"
+                 accept="image/x-png,image/gif,image/jpeg,image/webp" required>
+          <div class="label_center">
+            <label for="avatar_inp">
+              <div class="placeholder">
+                <div class="empty"></div>
+                <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="128" height="128">
+                  <defs>
+                    <style>.c1 {
+                      fill: none;
+                      stroke: var(--main-text);
+                      stroke-miterlimit: 10;
+                      stroke-width: 2px;
+                    }</style>
+                  </defs>
+                  <g id="b">
+                    <circle class="c1" cx="16" cy="16" r="15"/>
+                    <circle class="c1" cx="16.12" cy="10.97" r="5.03"/>
+                    <path class="c1" d="M4.28,26.16c.47-.6,4.65-5.8,11.83-5.75,7.05,.05,11.12,5.12,11.61,5.75"/>
+                  </g>
+                </svg>
+              </div>
+              <img src="" alt="source" class="source" #avatar_preview>
+              <div class="hover">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="32" width="32">
+                  <defs>
+                    <style>.c {
+                      fill: var(--main-text);
+                    }</style>
+                  </defs>
+                  <path class="c"
+                        d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+                </svg>
+              </div>
+            </label>
+          </div>
+        </div>
         <div class="field">
-          <input id="username_inp" type="text" pattern="^[A-Za-z0-9_]+$" minlength="3" maxlength="32" placeholder=" " required>
-          <label for="username_inp">Username</label>
+          <div class="name">Username</div>
+          <input id="username_inp" class="username" type="text" placeholder="Nightly" minlength="3" maxlength="32"
+                 pattern="^[A-Za-z0-9_]+$" required>
         </div>
       </div>
-      <div class="column">
-        <div class="heading">Private Information</div>
-        <div class="field">
-          <input id="email_inp" type="text" pattern="^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})$" minlength="6" placeholder=" " required>
-          <label for="email_inp">Email</label>
+      <div class="main" data-next="Next: Confirmation" data-header="Let's get private"
+           data-comment="Your privacy, our priority. Your information, your control.">
+        <div class="row">
+          <div class="field">
+            <div class="name">Firstname</div>
+            <input id="firstname_inp" type="text" placeholder="John"
+                   pattern="^[\p{L}\p{M}\p{Zs}.'-]{1,50}$" required>
+          </div>
+          <div class="field">
+            <div class="name">Surname</div>
+            <input id="suername_inp" type="text" placeholder="Dough"
+                   pattern="^[\p{L}\p{M}\p{Zs}.'-]{1,50}$" required>
+          </div>
         </div>
         <div class="field">
-          <input id="birthdate_inp" type="text" pattern="^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})$" minlength="6" placeholder=" " required>
-          <label for="birthdate_inp">Birthdate</label>
+          <div class="name">Email</div>
+          <input id="email_inp" type="text" placeholder="username@email.com"
+                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+        </div>
+        <div class="field">
+          <div class="name">Phone</div>
+          <input id="phone_inp" type="text" placeholder="+1 XXX XXX XXXX"
+                 pattern="^\+?[0-9]{1,3}?[-.\s]?\(?[0-9]{1,3}?\)?[-.\s]?[0-9]{1,4}[-.\s]?[0-9]{1,4}[-.\s]?[0-9]{1,9}$"
+                 required>
+        </div>
+        <div class="field">
+          <div class="name">Birthdate</div>
+          <input id="age_inp" type="date" placeholder=" " required>
         </div>
       </div>
-    </div>
-    <div class="footer">
-
+      <div class="footer">
+        <div class="row">
+          <button class="back" (click)="prevPage()" [style.display]="currentMain > 0 ? 'block' : 'none'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24">
+              <defs>
+                <style>
+                  .bck {
+                    fill: var(--main-text);
+                  }
+                </style>
+              </defs>
+              <path class="bck"
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
+            </svg>
+          </button>
+          <button class="next" (click)="nextPage()" type="submit">{{nextButtonText}}</button>
+        </div>
+        <div class="already" [style.display]="currentMain === 0 ? 'block' : 'none'">Already have an account? <a href="">Login</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

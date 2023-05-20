@@ -1,10 +1,10 @@
 html, body {
-  background-color: var(--color-secondary-bg);
+  background-color: var(--secondary-bg);
   margin: 0;
   padding: 0;
   overflow: hidden;
 
-  color: var(--color-secondary-text);
+  color: var(--secondary-text);
   font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,21 +33,29 @@ html, body {
 }
 
 :root {
-  --color-link-hover: #27c7b9;
+  --link-hover: #27c7b9;
 
-  --color-logo-pink: #e63462;
-  --color-logo-blue: #2359b5;
+  --logo-pink: #e63462;
+  --logo-blue: #2359b5;
 
-  --color-main-bg: #212a36;
-  --color-main-text: #cdd9e5;
+  --main-bg: #212930;
+  --main-text: #FFFDFA;
 
-  --color-secondary-bg: #171e26;
-  --color-secondary-text: #adbac7;
+  --secondary-bg: #171e26;
+  --secondary-text: #7c8084;
 
-  --color-input-bg: #151c25;
-  --color-input-label: #515460;
+  --third-bg: #272d36;
 
-  --color-input-invalid: #ED4337;
-  --color-input-valid: #58ed37;
-  --color-input-neutral: #3771ed;
+  --input-bg: #6e7786;
+  --input-label: #515460;
+
+  --input-invalid: #ED4337;
+  --input-valid: #58ed37;
+  --input-neutral: #3771ed;
+
+  --primary: #d5fbf4;
+  --secondary: #171e26;
+  --primbuttn: #2359b5;
+  --secbuttn: #00080a;
+  --accent: #e63462;
 }
