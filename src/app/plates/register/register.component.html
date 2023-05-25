@@ -1,13 +1,14 @@
 <div class="content">
-  <div class="envelope">
-    <div class="column" style="background-color: #272d36; color: var(--main-text)">There will be content here fucker.
+  <div class="envelope" #envelope>
+    <div class="column" style="background-color: #272d36; color: var(--main-text)" #promo>There will be content here
+      fucker.
     </div>
     <div class="column form">
       <div class="heading">{{headlineHeader}}</div>
       <div class="slogan">{{headlineComment}}</div>
       <div class="body">
         <form class="main" data-next="Next: Private information" data-header="Let's get started"
-             data-comment="Take control of your privacy, sign up now.">
+              data-comment="Take control of your privacy, sign up now.">
           <div class="field avatar_input">
             <input id="avatar_inp" class="avatar" type="file" (change)="onFileChange($event, avatar_preview)"
                    accept="image/x-png,image/gif,image/jpeg,image/webp" required>
@@ -19,7 +20,7 @@
                     <defs>
                       <style>.c1 {
                         fill: none;
-                        stroke: var(--main-text);
+                        stroke: var(--secondary-text);
                         stroke-miterlimit: 10;
                         stroke-width: 2px;
                       }</style>
@@ -53,7 +54,7 @@
           </div>
         </form>
         <form class="main" data-next="Next: Confirmation" data-header="Let's get private"
-             data-comment="Your privacy, our priority. Your information, your control.">
+              data-comment="Your privacy, our priority. Your information, your control.">
           <div class="field">
             <div class="name">Full name</div>
             <input id="fullname_inp" type="text" placeholder="John Dough"
@@ -69,10 +70,11 @@
                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
           </div>
         </form>
+        <div class="main loading" data-done="true"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
       </div>
       <div class="footer">
         <div class="row">
-          <button class="back {{currentMain === 0 ? '' : 'visible'}}" (click)="prevPage()">
+          <button class="back {{currentMain === 0 ? '' : 'visible'}}" (click)="changePage(currentMain - 1)">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="24" height="24">
               <defs>
                 <style>
@@ -85,7 +87,7 @@
                     d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/>
             </svg>
           </button>
-          <button class="next" (click)="nextPage()" type="submit" [disabled]="nextDisabled">{{nextButtonText}}</button>
+          <button class="next" (click)="changePage(currentMain + 1)" type="submit" [disabled]="nextDisabled">{{nextButtonText}}</button>
         </div>
         <div class="already {{currentMain > 0 ? '' : 'visible'}}">Already have an account? <a href="">Login</a>
         </div>

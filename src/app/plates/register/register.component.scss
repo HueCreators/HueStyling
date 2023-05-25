@@ -18,14 +18,40 @@
   background-color: var(--main-bg);
   box-sizing: border-box;
   padding: 16px;
-}
 
-.column {
-  display: flex;
-  flex-direction: column;
-  width: calc(50% - 8px);
-  height: 100%;
-  border-radius: 6px;
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 8px);
+    height: 100%;
+    border-radius: 6px;
+    transition: all ease-in-out 125ms;
+  }
+
+  .done {
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.done {
+    justify-content: center;
+
+    .column {
+      &:first-child {
+        width: 0;
+      }
+
+      .heading, .slogan, .footer {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
 }
 
 .form {
@@ -33,6 +59,9 @@
     font-size: 24px;
     color: var(--main-text);
     padding: 50px 50px 0;
+
+    transition: all ease-in-out 125ms;
+    opacity: 1;
   }
 
   .slogan {
@@ -40,6 +69,9 @@
     padding: 0 50px;
     font-size: 16px;
     margin-top: 12px;
+
+    transition: all ease-in-out 125ms;
+    opacity: 1;
   }
 
   .body {
@@ -62,6 +94,14 @@
       transition: all ease-in-out 125ms;
       opacity: 0;
       pointer-events: none;
+
+      &.visible {
+        width: 100%;
+      }
+
+      &.loading.visible {
+        width: 100%;
+      }
     }
 
     .visible {
@@ -80,6 +120,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0 50px;
+  transition: all ease-in-out 125ms;
 
   .row {
     display: flex;

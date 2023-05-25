@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -8,31 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
   constructor() {}
 
+  @ViewChild('envelope') envelope: ElementRef | undefined;
+  @ViewChild('promo') promo: ElementRef | undefined;
+
   currentMain: number = 0;
   nextButtonText: string = "Next: Private Information";
   headlineHeader: string = "";
   headlineComment: string = "";
-  nextDisabled: boolean = false;
+  nextDisabled: boolean = true;
 
   ngOnInit(): void {
+    this.changePage();
+
     let els = document.getElementsByClassName('main');
-    for(let i = 0; i < els.length; i++) {
-      let item = els.item(i);
-      if(item) {
-        item.classList.remove('visible');
-        if(i === this.currentMain) {
-          item.classList.add('visible');
-
-          // @ts-ignore
-          this.nextButtonText = item.getAttribute('data-next');
-          // @ts-ignore
-          this.headlineHeader = item.getAttribute('data-header');
-          // @ts-ignore
-          this.headlineComment = item.getAttribute('data-comment');
-        }
-      }
-    }
-
     for(let i = 0; i < els.length; i++) {
       let item = els.item(i);
       if(item) {
@@ -49,46 +37,23 @@ export class RegisterComponent implements OnInit {
   }
 
   validator(inputs: NodeListOf<HTMLInputElement>, index: number): void {
+    if(this.currentMain !== index)
+      return;
+
     let valid = true;
     inputs.forEach(inp => {
       if(!inp.validity.valid) {
         valid = false;
-        return;
       }
     })
 
     this.nextDisabled = !valid;
   }
 
-  prevPage(): void {
+  changePage(target: number = 0): void {
     let els = document.getElementsByClassName('main');
-    if(this.currentMain > 0)
-      this.currentMain--;
-    else
-      return;
-
-    for(let i = 0; i < els.length; i++) {
-      let item = els.item(i);
-      if(item) {
-        item.classList.remove('visible');
-        if(i === this.currentMain) {
-          item.classList.add('visible');
-
-          // @ts-ignore
-          this.nextButtonText = item.getAttribute('data-next');
-          // @ts-ignore
-          this.headlineHeader = item.getAttribute('data-header');
-          // @ts-ignore
-          this.headlineComment = item.getAttribute('data-comment');
-        }
-      }
-    }
-  }
-
-  nextPage(): void {
-    let els = document.getElementsByClassName('main');
-    if(this.currentMain < els.length-1)
-      this.currentMain++;
+    if(this.currentMain >= 0 || this.currentMain < els.length - 1)
+      this.currentMain = target;
     else
       return;
 
@@ -100,6 +65,16 @@ export class RegisterComponent implements OnInit {
           {
             item.classList.add('visible');
             this.validator(item.querySelectorAll('input'), i);
+            if(item.getAttribute('data-done')) {
+              this.envelope?.nativeElement.classList.add('done');
+              this.promo?.nativeElement.classList.add('done');
+
+              setTimeout(() => {
+                this.envelope?.nativeElement.classList.remove('done');
+                this.promo?.nativeElement.classList.remove('done');
+                this.changePage(1);
+              }, 1000 * 5)
+            }
           }
 
           // @ts-ignore
@@ -111,10 +86,6 @@ export class RegisterComponent implements OnInit {
         }
       }
     }
-  }
-
-  onInputChange(event: Event) {
-    console.log(event);
   }
 
   onFileChange(event: Event, target: HTMLImageElement) {
